@@ -1,10 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Thymeleaf app</title>
+    <!--<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">-->
+    <style>
+        table, td, th {border: 1px solid black;}
+        table {border-collapse: collapse;width: 60%;}
+        th {height: 50px;}
+    </style>
 </head>
 <body>
+<h1>Contact list</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Last Name</th>
+        <th>Description</th>
+        <th>Status</th>
+    </tr>
+    <tbody>
+    <!--// for loop for each 'student' in the Array-->
+    <tr th:each="contact: ${contacts}">
+        <!--// awful styling to be replaced later-->
+        <td th:text="${contact.name}">Replaced name</td>
+        <td th:text="${contact.lastname}">Replaced lastname</td>
+        <td th:text="${contact.description}">Replaced age 99</td>
 
+        <!--// Switch condition-->
+        <!--// stats.name() -Because it is an ENUM https://stackoverflow.com/a/28559029 -->
+        <td th:switch="${contact.status.name()}">
+            <span th:case="'ACTIVE'" th:text="Active"></span>
+            <span th:case="'DISABLED'" th:text="Disabled"></span>
+            <span th:case="'DELETED'" th:text="Deleted"></span>
+        </td>
+        <td>*</td>
+    </tr>
+    </tbody>
+    </thead>
+</table>
 </body>
 </html>

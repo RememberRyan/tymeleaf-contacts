@@ -7,6 +7,10 @@ import org.springframework.transaction.annotation.Transactional;
 import ee.sdacademy.thymleaf.contacts.domain.Contact;
 import ee.sdacademy.thymleaf.contacts.repository.ContactRepository;
 
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+
 @Service
 public class ContactService {
 
@@ -19,6 +23,11 @@ public class ContactService {
     }
 
     public Contact get(Integer id) {
+//        StreamSupport.
+//                stream(contactRepository.findAll().spliterator(), false).collect(Collectors.toList());
         return contactRepository.findById(id).get();
+    }
+    public List<Contact> findAll() {
+        return contactRepository.findAll();
     }
 }

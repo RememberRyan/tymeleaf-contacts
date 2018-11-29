@@ -2,6 +2,7 @@ package ee.sdacademy.thymleaf.contacts.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import ee.sdacademy.thymleaf.contacts.services.ContactService;
@@ -13,7 +14,8 @@ public class IndexPageController {
     private ContactService contactService;
 
     @GetMapping("/")
-    public String mainPage() {
+    public String mainPage(Model model) {
+        model.addAttribute("contacts", contactService.findAll());
         return "index";
     }
 }
