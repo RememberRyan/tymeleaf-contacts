@@ -27,7 +27,9 @@ public class IndexPageController {
     @GetMapping("/view")
     public String viewContact(@RequestParam("id") Integer id, Model model){
         model.addAttribute("contact", contactService.get(id));
+        model.addAttribute("phones", contactService.findPhoneNumbers(id));
         return "view";
+
     }
 
 
@@ -41,3 +43,22 @@ public class IndexPageController {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>View contact</title>
+    <style>
+        table, td, th {border: 0px solid black;}
+        table {border-collapse: collapse;width: 60%;}
+        th {height: 50px;}
+    </style>
 </head>
 <body>
 <h1>Full profile of Contact</h1>
@@ -18,5 +23,33 @@
 <div>
     Description: <span th:text="${contact.description}">contact name</span>
 </div>
+
+<hr />
+
+<table>
+    <thead>
+    <tr>
+        <td>Type</td>
+        <td>Phone number</td>
+        <td>Description</td>
+        <td> * </td>
+    </tr>
+    </thead>
+
+    <tbody>
+        <tr th:each="phone: ${phones}">
+            <td th:text="${phone.type}"></td>
+            <td>
+                + <span th:text="${phone.countrycode}"></span> <span th:text="${phone.phonenumber}">000000000</span>
+            </td>
+            <td th:text="${phone.description}"></td>
+            <td></td>
+
+        </tr>
+    </tbody>
+    </thead>
+</table>
+<a th:href="@{/}">Back to homepage</a>
+
 </body>
 </html>
