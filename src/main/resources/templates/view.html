@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View contact</title>
+</head>
+<body>
+<h1>Full profile of Contact</h1>
+<div>
+    Name: <span th:text="${contact.name}">contact name</span>
+</div>
+<div>
+    Last Name: <span th:text="${contact.lastname}">contact last name</span>
+</div>
+<div>
+    Status: <span th:text="${contact.status}">contact status</span>
+</div>
+<div>
+    Description: <span th:text="${contact.description}">contact name</span>
+</div>
+</body>
+</html>

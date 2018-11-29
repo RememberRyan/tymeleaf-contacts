@@ -19,6 +19,7 @@
         <th>Last Name</th>
         <th>Description</th>
         <th>Status</th>
+        <th>Profile</th>
     </tr>
     <tbody>
     <!--// for loop for each 'student' in the Array-->
@@ -35,7 +36,13 @@
             <span th:case="'DISABLED'" th:text="Disabled"></span>
             <span th:case="'DELETED'" th:text="Deleted"></span>
         </td>
-        <td>*</td>
+        <td>
+            <a th:href="@{/view(id=${contact.id})}">View</a>
+
+            <!--// alternative version-->
+            <!--<a th:href="@{/view/{id}(id=$contact.id})}">View</a>-->
+
+        </td>
     </tr>
     </tbody>
     </thead>
