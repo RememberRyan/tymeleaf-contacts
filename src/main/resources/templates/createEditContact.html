@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:if="${newContact}">Create contact</title>
+    <title th:unless="${newContact}">Edit contact</title>
+</head>
+<body>
+<h1 th:if="${newContact}">Create Contact</h1>
+<h1 th:unless="${newContact}">Edit Contact</h1>
+
+<form th:action="@{/createContact}" method="post" th:object="${contact}">
+    <!--// '*' works with the above line 'contact' object-->
+    <label>Name: </label> <input type="text" th:field="*{name}"> <br>
+    <label>Last name: </label> <input type="text" th:field="*{lastname}"> <br>
+    <label>Status: </label> <select th:field="*{status}"></select> <br>
+
+
+
+</form>
+
+</body>
+</html>

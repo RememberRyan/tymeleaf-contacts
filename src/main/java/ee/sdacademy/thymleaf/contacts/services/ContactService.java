@@ -28,7 +28,7 @@ public class ContactService {
     public Contact get(Integer id) {
 //        StreamSupport.
 //                stream(contactRepository.findAll().spliterator(), false).collect(Collectors.toList());
-        return contactRepository.findById(id).get();
+        return contactRepository.findOne(id);
     }
     public List<Contact> findAll() {
         return contactRepository.findAll();
